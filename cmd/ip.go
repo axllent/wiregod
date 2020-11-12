@@ -15,7 +15,7 @@ var ipCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		ip, err := app.PublicIP()
 		if err != nil {
-			fmt.Printf("Error: %s\n", err)
+			fmt.Printf("Error fetching public IP: %s\n", err)
 			return
 		}
 
