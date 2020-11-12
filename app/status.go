@@ -13,7 +13,7 @@ func WGStatus() error {
 	connections := WGConnections()
 
 	if len(connections) == 0 {
-		return fmt.Errorf("Wireguard not running")
+		return fmt.Errorf("Wireguard is not active")
 	}
 
 	for _, wg := range connections {
@@ -21,11 +21,15 @@ func WGStatus() error {
 		if err != nil {
 			return err
 		}
-		fmt.Printf("Wireguard on %s is up:\n\n%s\n", wg, output)
-		if ip, err := PublicIP(); err == nil {
-			fmt.Printf("Public IP: %s\n", ip)
-		}
+		fmt.Printf("Wireguard interface \"%s\" up:\n\n%s\n", wg, output)
 	}
+
+	ip, err := PublicIP()
+	if err != nil {
+		return fmt.Errorf("Error fetching public IP: %s", err)
+	}
+
+	fmt.Printf("Public IP: %s\n", ip)
 
 	return nil
 }

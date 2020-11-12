@@ -50,7 +50,7 @@ var downCmd = &cobra.Command{
 		}
 
 		fmt.Println(output)
-		fmt.Printf("Wireguard on %s is down\n", wg)
+		fmt.Printf("Wireguard interface \"%s\" down\n", wg)
 	},
 }
 

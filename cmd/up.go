@@ -49,7 +49,14 @@ var upCmd = &cobra.Command{
 			os.Exit(1)
 		}
 		fmt.Println(output)
-		fmt.Printf("Wireguard on %s is up\n", wg)
+
+		ip, err := app.PublicIP()
+		if err != nil {
+			fmt.Printf("Wireguard interface \"%s\" up, but possibly not connected.\n\nCannot get public IP: %s\n", wg, err)
+			return
+		}
+
+		fmt.Printf("Wireguard interface \"%s\" up with public IP %s\n", wg, ip)
 	},
 }
 
