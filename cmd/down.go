@@ -11,13 +11,13 @@ import (
 // downCmd represents the down command
 var downCmd = &cobra.Command{
 	Use:   "down [interface]",
-	Short: "Take a Wireguard interface offline",
-	Long:  `Take a Wireguard interface offline`,
+	Short: "Take a WireGuard interface offline",
+	Long:  `Take a WireGuard interface offline`,
 	Args:  cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		connections := app.WGConnections()
 		if len(connections) == 0 {
-			fmt.Println("Wireguard is not connected")
+			fmt.Println("WireGuard is not connected")
 			os.Exit(1)
 		}
 		var wg string
@@ -50,7 +50,7 @@ var downCmd = &cobra.Command{
 		}
 
 		fmt.Println(output)
-		fmt.Printf("Wireguard interface \"%s\" down\n", wg)
+		fmt.Printf("WireGuard interface \"%s\" down\n", wg)
 	},
 }
 

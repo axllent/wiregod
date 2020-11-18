@@ -1,7 +1,7 @@
-# Wiregod - a [Wireguard](https://www.wireguard.com/) client helper for Linux
+# Wiregod - a [WireGuard](https://www.wireguard.com/) client helper for Linux
 
 ```
-Wiregod is a helper utility for handling one or more Wireguard client configurations.
+Wiregod is a helper utility for handling one or more WireGuard client configurations.
 Issues & documentation: https://github.com/axllent/wiregod
 
 Usage:
@@ -9,10 +9,10 @@ Usage:
   wiregod [command]
 
 Available Commands:
-  down        Take a Wireguard interface offline
+  down        Take a WireGuard interface offline
   ip          Show your public IP
   status      View current wireguard connection status
-  up          Bring a Wireguard interface online
+  up          Bring a WireGuard interface online
   version     Display the app version & update information
 
 Use "wiregod [command] --help" for more information about a command.
@@ -20,8 +20,8 @@ Use "wiregod [command] --help" for more information about a command.
 
 ## Usage:
 
-- `wiregod up` - Bring a Wireguard interface online. If you have more than one Wireguard config then you are presented a choice.
-- `wiregod down` - Take a Wireguard interface offline. If you have more than one Wireguard config then you are presented a choice.
+- `wiregod up` - Bring a WireGuard interface online. If you have more than one WireGuard config then you are presented a choice.
+- `wiregod down` - Take a WireGuard interface offline. If you have more than one WireGuard config then you are presented a choice.
 
 
 ## Requirements

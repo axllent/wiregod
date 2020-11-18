@@ -14,7 +14,7 @@ var cfgFile string
 var rootCmd = &cobra.Command{
 	Use:   "wiregod",
 	Short: "Wiregod",
-	Long: `Wiregod is a helper utility for handling one or more Wireguard client configurations.
+	Long: `Wiregod is a helper utility for handling one or more WireGuard client configurations.
 Issues & documentation: https://github.com/axllent/wiregod`,
 	SilenceUsage:  true, // suppress help screen on error
 	SilenceErrors: true, // suppress duplicate error on error

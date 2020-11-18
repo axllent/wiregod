@@ -11,13 +11,13 @@ import (
 // upCmd represents the up command
 var upCmd = &cobra.Command{
 	Use:   "up [interface]",
-	Short: "Bring a Wireguard interface online",
-	Long:  `Brings a Wireguard interface online`,
+	Short: "Bring a WireGuard interface online",
+	Long:  `Brings a WireGuard interface online`,
 	Args:  cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		available := app.Configs()
 		if len(available) == 0 {
-			fmt.Println("You do not have any Wireguard configs in /etc/wireguard")
+			fmt.Println("You do not have any WireGuard configs in /etc/wireguard")
 			os.Exit(1)
 		}
 		var wg string
@@ -52,11 +52,11 @@ var upCmd = &cobra.Command{
 
 		ip, err := app.PublicIP()
 		if err != nil {
-			fmt.Printf("Wireguard interface \"%s\" up, but possibly not connected.\n\nCannot get public IP: %s\n", wg, err)
+			fmt.Printf("WireGuard interface \"%s\" up, but possibly not connected.\n\nCannot get public IP: %s\n", wg, err)
 			return
 		}
 
-		fmt.Printf("Wireguard interface \"%s\" up with public IP %s\n", wg, ip)
+		fmt.Printf("WireGuard interface \"%s\" up with public IP %s\n", wg, ip)
 	},
 }
 
