@@ -21,10 +21,12 @@ Use "wiregod [command] --help" for more information about a command.
 ## Usage:
 
 - `wiregod up` - Bring a WireGuard interface online. If you have more than one WireGuard config then you are presented a choice.
-- `wiregod down` - Take a WireGuard interface offline. If you have more than one WireGuard config then you are presented a choice.
+- `wiregod down` - Take a WireGuard interface offline. If you have more than one WireGuard interface active then you are presented a choice.
+- `wiregod ip` - Get your public ip.
+- `wiregod status` - Show connection status.
 
 
 ## Requirements
 
 - `sudo`, `wireguard`, `wireguard-tools` installed
-- At least one working wireguard configuration
+- At least one working WireGuard configuration
