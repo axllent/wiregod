@@ -3,7 +3,7 @@ LDFLAGS=-ldflags "-s -w -X github.com/axllent/wiregod/cmd.Version=${VERSION}"
 BINARY=wiregod
 UPX := $(shell which upx)
 
-build = echo "\n\nBuilding $(1)-$(2)" && GOOS=$(1) GOARCH=$(2) go build ${LDFLAGS} -o dist/${BINARY}_${VERSION}_$(1)_$(2) \
+build = echo "\n\nBuilding $(1)-$(2)" && GO386=softfloat GOOS=$(1) GOARCH=$(2) go build ${LDFLAGS} -o dist/${BINARY}_${VERSION}_$(1)_$(2) \
 	&& if [ "${UPX}" != "" ]; then ${UPX} -q -9 dist/${BINARY}_${VERSION}_$(1)_$(2); fi \
 	&& bzip2 dist/${BINARY}_${VERSION}_$(1)_$(2) \
 	&& if [ $(1) = "windows" ]; then mv dist/${BINARY}_${VERSION}_$(1)_$(2).bz2 dist/${BINARY}_${VERSION}_$(1)_$(2).exe.bz2; fi
