@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"time"
 
 	"github.com/axllent/wiregod/app"
 	"github.com/spf13/cobra"
@@ -50,12 +51,23 @@ var upCmd = &cobra.Command{
 		}
 		fmt.Println(output)
 
+		// save the cursor position
+		fmt.Print("\033[s")
+
+		fmt.Printf("Getting public IP...")
+
+		time.Sleep(2 * time.Second)
+
 		ip, err := app.PublicIP()
 		if err != nil {
+			// restore cursor position
+			fmt.Print("\033[u\033[K")
 			fmt.Printf("WireGuard interface \"%s\" up, but possibly not connected.\n\nCannot get public IP: %s\n", wg, err)
 			return
 		}
 
+		// restore cursor position
+		fmt.Print("\033[u\033[K")
 		fmt.Printf("WireGuard interface \"%s\" up with public IP %s\n", wg, ip)
 	},
 }
